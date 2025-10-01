@@ -1,0 +1,36 @@
+import time
+from essential_generators import DocumentGenerator
+
+def typing_speed():
+    gen = DocumentGenerator()
+    sentence = gen.sentence()
+    wordcount = len(sentence.split())
+
+    print("Type this sentence:")
+    print(sentence)
+    print("----------------------------------------")
+
+    start_time = time.time()
+    textInput = input("Your input: ")
+    end_time = time.time()
+
+    timeTaken = round(end_time - start_time, 2)
+    accuracy = len(set(textInput.split()) & set(sentence.split())) / wordcount * 100
+    wpm = round((wordcount / timeTaken) * 60)
+
+    print("----------------------------------------")
+    print(f"Time taken: {timeTaken} seconds")
+    print(f"Your accuracy: {accuracy:.2f}%")
+    print(f"Your typing speed: {wpm} WPM")
+    print("----------------------------------------")
+    
+    if accuracy < 1 or wpm < 99:
+        print("You are doing great!")
+    elif accuracy <= 100 or wpm <= 100:
+        print("You are a pro in typing!")
+    else:
+        print("You are a typing machine!")
+
+
+if __name__ == "__main__":
+    typing_speed()
