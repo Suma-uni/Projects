@@ -34,3 +34,13 @@ def typing_speed():
 
 if __name__ == "__main__":
     typing_speed()
+
+
+
+
+
+
+
+
+"FILE:requirements.txt"
+"CONTENTS:essential_generators==1.0"
